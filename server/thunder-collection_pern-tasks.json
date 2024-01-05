@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "pern-tasks",
-    "dateExported": "2024-01-05T01:25:42.738Z",
+    "dateExported": "2024-01-05T01:30:44.871Z",
     "version": "1.1",
     "folders": [
         {
@@ -10,6 +10,13 @@
             "containerId": "",
             "created": "2024-01-05T01:23:58.402Z",
             "sortNum": 10000
+        },
+        {
+            "_id": "d85e6393-2490-4a86-90ee-1c78afc96ec7",
+            "name": "auth",
+            "containerId": "",
+            "created": "2024-01-05T01:28:46.808Z",
+            "sortNum": 20000
         }
     ],
     "requests": [
@@ -42,6 +49,48 @@
             "tests": []
         },
         {
+            "_id": "7e8678d2-e8d3-4ee2-a287-78de0373f128",
+            "colId": "2580a48b-67c3-40e4-8c67-4a6dd75c2c40",
+            "containerId": "d85e6393-2490-4a86-90ee-1c78afc96ec7",
+            "name": "/signin",
+            "url": "http://localhost:3000/signout",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-01-05T01:28:55.578Z",
+            "modified": "2024-01-05T01:29:40.859Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b97712ad-cabb-4be5-a8d2-d28ed9bf68a5",
+            "colId": "2580a48b-67c3-40e4-8c67-4a6dd75c2c40",
+            "containerId": "d85e6393-2490-4a86-90ee-1c78afc96ec7",
+            "name": "/profile",
+            "url": "http://localhost:3000/profile",
+            "method": "GET",
+            "sortNum": 32500,
+            "created": "2024-01-05T01:29:48.980Z",
+            "modified": "2024-01-05T01:30:01.458Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b99a5a18-73f0-4512-8897-f67d22eb20c6",
+            "colId": "2580a48b-67c3-40e4-8c67-4a6dd75c2c40",
+            "containerId": "d85e6393-2490-4a86-90ee-1c78afc96ec7",
+            "name": "/signout",
+            "url": "http://localhost:3000/signup",
+            "method": "POST",
+            "sortNum": 35000,
+            "created": "2024-01-05T01:29:26.762Z",
+            "modified": "2024-01-05T01:29:26.762Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
             "_id": "b96661e9-2d02-45b1-80e2-18ae211ba010",
             "colId": "2580a48b-67c3-40e4-8c67-4a6dd75c2c40",
             "containerId": "d2a1f7ba-652d-4d5c-bceb-25f008e14fa0",
@@ -51,6 +100,20 @@
             "sortNum": 40000,
             "created": "2024-01-05T01:24:51.767Z",
             "modified": "2024-01-05T01:25:02.853Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "175ab7b3-de2b-46e3-9df5-6bb806fd108d",
+            "colId": "2580a48b-67c3-40e4-8c67-4a6dd75c2c40",
+            "containerId": "d85e6393-2490-4a86-90ee-1c78afc96ec7",
+            "name": "/signup",
+            "url": "http://localhost:3000/signin",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-01-05T01:29:04.040Z",
+            "modified": "2024-01-05T01:29:04.040Z",
             "headers": [],
             "params": [],
             "tests": []
