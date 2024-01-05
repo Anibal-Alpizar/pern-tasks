@@ -1,0 +1,87 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "pern-tasks",
+    "dateExported": "2024-01-05T01:25:42.738Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "d2a1f7ba-652d-4d5c-bceb-25f008e14fa0",
+            "name": "tasks",
+            "containerId": "",
+            "created": "2024-01-05T01:23:58.402Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "8bd135ca-e941-490a-ad76-e83b6e281f9f",
+            "colId": "2580a48b-67c3-40e4-8c67-4a6dd75c2c40",
+            "containerId": "d2a1f7ba-652d-4d5c-bceb-25f008e14fa0",
+            "name": "/tasks",
+            "url": "http://localhost:3000/tasks",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-01-05T01:24:24.206Z",
+            "modified": "2024-01-05T01:24:41.323Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "de578fdc-724b-42ff-b962-759441f1c7e5",
+            "colId": "2580a48b-67c3-40e4-8c67-4a6dd75c2c40",
+            "containerId": "d2a1f7ba-652d-4d5c-bceb-25f008e14fa0",
+            "name": "/tasks",
+            "url": "http://localhost:3000/tasks",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-01-05T01:24:32.079Z",
+            "modified": "2024-01-05T01:24:32.079Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b96661e9-2d02-45b1-80e2-18ae211ba010",
+            "colId": "2580a48b-67c3-40e4-8c67-4a6dd75c2c40",
+            "containerId": "d2a1f7ba-652d-4d5c-bceb-25f008e14fa0",
+            "name": "/tasks/:id",
+            "url": "http://localhost:3000/tasks/1",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-01-05T01:24:51.767Z",
+            "modified": "2024-01-05T01:25:02.853Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "cafff67e-c1d2-40eb-9217-a3c3c7945408",
+            "colId": "2580a48b-67c3-40e4-8c67-4a6dd75c2c40",
+            "containerId": "d2a1f7ba-652d-4d5c-bceb-25f008e14fa0",
+            "name": "/tasks/:id",
+            "url": "http://localhost:3000/tasks/1",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-01-05T01:25:12.888Z",
+            "modified": "2024-01-05T01:25:22.442Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "25e6fbd5-8504-489f-91d5-a95aca250354",
+            "colId": "2580a48b-67c3-40e4-8c67-4a6dd75c2c40",
+            "containerId": "d2a1f7ba-652d-4d5c-bceb-25f008e14fa0",
+            "name": "/tasks/:id",
+            "url": "http://localhost:3000/tasks/1",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2024-01-05T01:25:27.258Z",
+            "modified": "2024-01-05T01:25:36.465Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
