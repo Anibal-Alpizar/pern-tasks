@@ -5,7 +5,16 @@ export const getAllTasks = async (req, res, next) => {
     return res.json(result.rows)
 }
 
-export const getTask = (req, res) => res.send('getting an task')
+export const getTask = async (req, res) => {
+    const taskId = +(req.params.id)
+    const result = await pool.query('SELECT * FROM task WHERE id = $1', [taskId])
+
+    if (result.rowCount === 0) {
+        return res.status(404).json({ message: `Task ${taskId} not found` })
+    }
+    return res.json(rows[0])
+}
+
 
 export const createTask = async (req, res, next) => {
     const { title, description } = (req.body)
