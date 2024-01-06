@@ -18,7 +18,7 @@ export const createTask = async (req, res, next) => {
         res.json(result.rows[0])
     } catch (error) {
         if (error.code === '23505') {
-            return res.status(400).json('Task already exists')
+            return res.status(409).json('Task already exists')
         }
         next(error) // pass error to error handler
     }
