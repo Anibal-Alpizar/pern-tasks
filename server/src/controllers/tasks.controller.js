@@ -1,6 +1,9 @@
 import { pool } from '../db.js'
 
-export const getAllTasks = (req, res) => res.send('getting tasks')
+export const getAllTasks = async (req, res, next) => {
+    const result = await pool.query('SELECT * FROM task')
+    return res.json(result.rows)
+}
 
 export const getTask = (req, res) => res.send('getting an task')
 
