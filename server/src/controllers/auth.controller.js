@@ -45,6 +45,9 @@ export const signup = async (req, res) => {
     }
 }
 
-export const logout = async (req, res) => res.send('logout')
+export const logout = async (req, res) => {
+    res.clearCookie('token')
+    res.sendStatus(200)
+}
 
 export const profile = async (req, res) => res.send('profile')
