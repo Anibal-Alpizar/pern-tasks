@@ -21,7 +21,7 @@ export const createTask = async (req, res, next) => {
     try {
         // throw new Error('force error') // for testing error handling
         const result = await pool.query(
-            'INSERT INTO task (title, description, user_id) VALUES ($1, $2) RETURNING *',
+            'INSERT INTO task (title, description, user_id) VALUES ($1, $2, $3) RETURNING *',
             [title, description, req.userId],
         )
         res.json(result.rows[0])
