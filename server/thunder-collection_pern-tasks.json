@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "pern-tasks",
-    "dateExported": "2024-01-07T02:51:49.052Z",
+    "dateExported": "2024-01-07T02:54:13.446Z",
     "version": "1.1",
     "folders": [
         {
@@ -58,13 +58,18 @@
             "colId": "2580a48b-67c3-40e4-8c67-4a6dd75c2c40",
             "containerId": "d85e6393-2490-4a86-90ee-1c78afc96ec7",
             "name": "/api/signin",
-            "url": "http://localhost:3000/api/signout",
+            "url": "http://localhost:3000/api/signin",
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-01-05T01:28:55.578Z",
-            "modified": "2024-01-05T01:33:31.272Z",
+            "modified": "2024-01-07T02:53:09.368Z",
             "headers": [],
             "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"Joe@gmail.com\",\n  \"password\": \"123\"\n}",
+                "form": []
+            },
             "tests": []
         },
         {
