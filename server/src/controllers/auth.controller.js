@@ -34,8 +34,8 @@ export const signup = async (req, res, next) => {
         // Save token in cookie
         res.cookie('token', token, {
             httpOnly: true, // JS cannot access the cookie
-            // secure: true // only works on https
-            sameSite: 'none',
+            secure: true,  // see the cookie in the browser
+            sameSite: 'none', // domains that can access the cookie
             maxAge: 24 * 60 * 60 * 1000 // 1 day
         })
 
