@@ -12,9 +12,20 @@ function RegisterPage() {
   register = onChange, name, value
   */
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(async (data) => {
     // data is what it has in the inputs (name, email, password)
     console.log(data);
+    const response = await fetch(`http://localhost:3000/api/signup`, {
+      method: "POST",
+      credentials: "include",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": true,
+      },
+    });
+    const dataSignup = await response.json();
+    console.log(dataSignup);
   });
 
   return (
