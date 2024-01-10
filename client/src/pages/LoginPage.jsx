@@ -21,6 +21,7 @@ function LoginPage() {
         <form onSubmit={onSubmit}>
           <Label htmlFor="email">Email</Label>
           <Input
+            type="email"
             placeholder="Enter your email"
             {...register("email", {
               required: true,
@@ -28,6 +29,7 @@ function LoginPage() {
           />
           <Label htmlFor="password">Password</Label>
           <Input
+            type="password"
             placeholder="Enter your password"
             {...register("password", {
               required: true,
