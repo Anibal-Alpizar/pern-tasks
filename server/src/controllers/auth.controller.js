@@ -12,8 +12,8 @@ export const signin = async (req, res) => {
         if (!isValidPassword) return res.status(400).json({ message: 'Invalid password' })
         const token = await createAccessToken({ id: result.rows[0].id })
         res.cookie('token', token, {
-            httpOnly: true, // JS cannot access the cookie
-            // secure: true // only works on https
+            // httpOnly: true, // JS cannot access the cookie
+            secure: true, // see the cookie in the browser
             sameSite: 'none',
             maxAge: 24 * 60 * 60 * 1000 // 1 day
         })
