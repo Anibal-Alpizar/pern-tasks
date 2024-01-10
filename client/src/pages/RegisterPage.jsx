@@ -1,9 +1,12 @@
 import { Button, Card, Input, Label } from "../components/ui";
 import { useForm } from "react-hook-form";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function RegisterPage() {
+  const { signup } = useAuth();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -16,10 +19,8 @@ function RegisterPage() {
 
   const onSubmit = handleSubmit(async (data) => {
     // data is what it has in the inputs (name, email, password)
-    const res = await axios.post("http://localhost:3000/api/signup", data, {
-      withCredentials: true,
-    });
-    console.log(res);
+    await signup(data);
+    navigate("/profile");
   });
 
   return (
