@@ -2,8 +2,9 @@
   Context will be used to store the user data
 */
 
-import { createContext, useState, useContext } from "react";
-import axios from "axios";
+import { createContext, useState, useContext, useEffect } from "react";
+import axios from "../api/axios.js";
+import Cookie from "js-cookie";
 
 export const AuthContext = createContext();
 
@@ -20,7 +21,7 @@ export function AuthProvider({ children }) {
 
   const signup = async (data) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/signup", data, {
+      const res = await axios.post("/signup", data, {
         withCredentials: true,
       });
       setUser(res.data);
@@ -36,9 +37,7 @@ export function AuthProvider({ children }) {
 
   const signin = async (data) => {
     try {
-      const res = await axios.post(`http://localhost:3000/api/signin`, data, {
-        withCredentials: true,
-      });
+      const res = await axios.post(`/signin`, data);
       setUser(res.data);
       setIsAuth(true);
       return res.data;
@@ -48,6 +47,25 @@ export function AuthProvider({ children }) {
       else setErrors([err.response.data.message]);
     }
   };
+
+  useEffect(() => {
+    console.log(Cookie.get());
+    if (Cookie.get("token")) {
+      // get profile
+      axios
+        .get(`/profile`)
+        .then((res) => {
+          console.log(res.data);
+          setUser(res.data);
+          setIsAuth(true);
+        })
+        .catch((err) => {
+          console.log(err);
+          setUser(null);
+          setIsAuth(false);
+        });
+    }
+  }, []);
 
   return (
     <AuthContext.Provider
