@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/navbar/Navbar";
+import { useAuth } from "./context/AuthContext";
 
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
@@ -10,23 +10,35 @@ import TaskFormPage from "./pages/TaskFormPage";
 import ProfilePage from "./pages/ProfilePage";
 import NotFound from "./pages/NotFound";
 import { Container } from "./components/ui";
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
+  const { isAuth } = useAuth();
+  console.log(isAuth);
   return (
     <>
       <Navbar />
       <Container className="py-5">
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route
+            element={<ProtectedRoute isAllowed={!isAuth} redirectTo="/tasks" />}
+          >
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Route>
 
-          <Route path="/tasks" element={<TasksPage />} />
-          <Route path="/tasks/new" element={<TaskFormPage />} />
-          <Route path="/tasks/1/edit" element={<TaskFormPage />} />
+          <Route
+            element={<ProtectedRoute isAllowed={isAuth} redirectTo="/login" />}
+          >
+            <Route path="/tasks" element={<TasksPage />} />
+            <Route path="/tasks/new" element={<TaskFormPage />} />
+            <Route path="/tasks/1/edit" element={<TaskFormPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+          </Route>
 
-          <Route path="/profile" element={<ProfilePage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>
