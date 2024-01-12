@@ -40,11 +40,22 @@ export function AuthProvider({ children }) {
       const res = await axios.post(`/signin`, data);
       setUser(res.data);
       setIsAuth(true);
+      console.log("login success");
       return res.data;
     } catch (err) {
       console.log(err);
       if (Array.isArray(err.response.data)) return setErrors(err.response.data);
       else setErrors([err.response.data.message]);
+    }
+  };
+
+  const signout = async () => {
+    try {
+      const res = await axios.post(`/signout`);
+      setUser(null);
+      setIsAuth(false);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -62,7 +73,7 @@ export function AuthProvider({ children }) {
         .catch((err) => {
           console.log(err);
           setUser(null);
-          setIsAuth(false);
+          // setIsAuth(false);
         });
     }
   }, []);
@@ -76,6 +87,7 @@ export function AuthProvider({ children }) {
         errors,
         signup,
         signin,
+        signout,
       }}
     >
       {children}
