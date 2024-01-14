@@ -15,8 +15,8 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 import Navbar from "./components/navbar/Navbar";
 
 function App() {
-  const { isAuth } = useAuth();
-  console.log(isAuth);
+  const { isAuth, loading } = useAuth();
+  if (loading) return <h1>Loading...</h1>;
   return (
     <>
       <Navbar />
