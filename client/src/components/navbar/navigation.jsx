@@ -7,6 +7,5 @@ export const publicRoutes = [
 export const privateRoutes = [
   { name: "Tasks", path: "/tasks" },
   { name: "NewTask", path: "/tasks/new" },
-  { name: "EditTask", path: "/tasks/1/" },
   { name: "Profile", path: "/profile" },
 ];
