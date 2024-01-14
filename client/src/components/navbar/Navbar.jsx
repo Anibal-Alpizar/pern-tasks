@@ -6,7 +6,7 @@ import { twMerge } from "tailwind-merge";
 
 function Navbar() {
   const location = useLocation();
-  const { isAuth, signout } = useAuth();
+  const { isAuth, signout, user } = useAuth();
   return (
     <nav className="bg-zinc-950 ">
       <Container className={"flex justify-between py-3"}>
@@ -28,12 +28,20 @@ function Navbar() {
                 </li>
               ))}
               <li
-              className="text-slate-300 flex items-center px-3 py-1 hover:cursor-pointer"
+                className="text-slate-300 flex items-center px-3 py-1 hover:cursor-pointer"
                 onClick={() => {
                   signout();
                 }}
               >
                 Logout
+              </li>
+              <li className="flex gap-x-2 items-center justify-center">
+                <img
+                  src={user.gravatar}
+                  alt="avatar"
+                  className="w-8 h-8 rounded-full"
+                />
+                <span className="font-medium">{user.name}</span>
               </li>
             </>
           ) : (
