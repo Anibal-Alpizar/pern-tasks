@@ -18,6 +18,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [isAuth, setIsAuth] = useState(false);
   const [errors, setErrors] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const signup = async (data) => {
     try {
@@ -60,6 +61,7 @@ export function AuthProvider({ children }) {
   };
 
   useEffect(() => {
+    setLoading(true);
     console.log(Cookie.get());
     if (Cookie.get("token")) {
       // get profile
@@ -69,11 +71,13 @@ export function AuthProvider({ children }) {
           console.log(res.data);
           setUser(res.data);
           setIsAuth(true);
+          setLoading(false);
         })
         .catch((err) => {
           console.log(err);
           setUser(null);
-          // setIsAuth(false);
+          setIsAuth(false);
+          setLoading(false);
         });
     }
   }, []);
@@ -88,6 +92,7 @@ export function AuthProvider({ children }) {
         signup,
         signin,
         signout,
+        loading,
       }}
     >
       {children}
