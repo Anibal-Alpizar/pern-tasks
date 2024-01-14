@@ -13,12 +13,14 @@ function TaskFormPage() {
   } = useForm();
   const navigate = useNavigate();
   const [postErrors, setPostErrors] = useState([]);
-  const { createTask, loadTask, error: taskErrors } = useTasks();
+  const { createTask, loadTask, error: taskErrors, updateTask } = useTasks();
   const params = useParams();
 
   const onSubmit = handleSubmit(async (data) => {
-    const res = await createTask(data);
-    if (res) navigate("/");
+    let task;
+    if (!params.id) task = await createTask(data);
+    else task = await updateTask(params.id, data);
+    if (task) navigate("/");
   });
 
   useEffect(() => {
