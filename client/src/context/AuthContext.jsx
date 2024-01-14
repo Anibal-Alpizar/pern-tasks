@@ -71,15 +71,14 @@ export function AuthProvider({ children }) {
           console.log(res.data);
           setUser(res.data);
           setIsAuth(true);
-          setLoading(false);
         })
         .catch((err) => {
           console.log(err);
           setUser(null);
           setIsAuth(false);
-          setLoading(false);
         });
     }
+    setLoading(false);
   }, []);
 
   return (
