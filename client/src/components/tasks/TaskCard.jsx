@@ -1,7 +1,8 @@
 import { Card, Button } from "../ui";
-import { deleteTaskRequest } from "../../api/tasks.api";
+import { useTasks } from "../../context/TaskContext";
 
 function TaskCard({ task }) {
+  const { deleteTask } = useTasks();
   return (
     <Card key={task.id} className="px-7 py-4">
       <div>
@@ -13,7 +14,7 @@ function TaskCard({ task }) {
         <Button
           className="bg-red-500 hover:bg-red-600"
           onClick={async () => {
-            if (confirm("Are you sure?")) await deleteTaskRequest(task.id);
+            if (confirm("Are you sure?")) deleteTask(task.id);
           }}
         >
           Eliminar
