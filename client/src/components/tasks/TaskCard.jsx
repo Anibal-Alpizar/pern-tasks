@@ -6,7 +6,7 @@ function TaskCard({ task }) {
   const { deleteTask } = useTasks();
   const navigate = useNavigate();
   return (
-    <Card key={task.id} className="px-7 py-4">
+    <Card key={task.id} className="px-7 py-4 flex flex-col justify-center">
       <div>
         <h1 className="text-2xl font-bold">{task.title}</h1>
         <p>{task.description}</p>
