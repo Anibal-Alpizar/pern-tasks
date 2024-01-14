@@ -81,6 +81,13 @@ export function AuthProvider({ children }) {
     setLoading(false);
   }, []);
 
+  useEffect(() => {
+    const clean = setTimeout(() => {
+      setErrors(null);
+    }, 5000);
+    return () => clearTimeout(clean);
+  }, []);
+
   return (
     <AuthContext.Provider
       // any components that are wrapped in the AuthProvider will have access to the user, isAuth, and errors state
