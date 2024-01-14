@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { publicRoutes, privateRoutes } from "./navigation";
 import { Container } from "../ui";
 import { useAuth } from "../../context/AuthContext";
+import { twMerge } from "tailwind-merge";
 
 function Navbar() {
   const location = useLocation();
@@ -17,15 +18,17 @@ function Navbar() {
             <>
               {privateRoutes.map(({ path, name }, index) => (
                 <li
-                  className={`text-slate-300 ${
-                    location.pathname === path && "bg-sky-500 px-3 py-1"
-                  }`}
+                  className={twMerge(
+                    "to-sky-300 flex items-center px-3 py-1",
+                    location.pathname === path && "bg-sky-500"
+                  )}
                   key={index}
                 >
                   <Link to={path}>{name}</Link>
                 </li>
               ))}
               <li
+              className="text-slate-300 flex items-center px-3 py-1 hover:cursor-pointer"
                 onClick={() => {
                   signout();
                 }}
@@ -36,9 +39,10 @@ function Navbar() {
           ) : (
             publicRoutes.map(({ path, name }, index) => (
               <li
-                className={`text-slate-300 ${
-                  location.pathname === path && "bg-sky-500 px-3 py-1"
-                }`}
+                className={twMerge(
+                  "to-sky-300 flex items-center px-3 py-1",
+                  location.pathname === path && "bg-sky-500"
+                )}
                 key={index}
               >
                 <Link to={path}>{name}</Link>
